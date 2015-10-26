@@ -60,6 +60,16 @@ function buildLibzForm()
 
 function submitLibzForm()
 {
+    var complete = 1;
+    for (var i = 0; i < wordList.length; i++) {
+	if ($('#word-'+i).val().length == 0) {
+	    complete = 0;
+	}
+    }
+    if (complete == 0) {
+	alert('You must complete all of the fields!');
+	return;
+    }
     $('#form').hide(500);
     var str = '';
     for (var i = 0; i < textLines.length; i++) {
